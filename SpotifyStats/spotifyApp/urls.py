@@ -20,6 +20,7 @@ from spotify_views import views as view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', view.login_page),
-    #path('',)
+    path('', view.login_template),
+    path('spotify-login/', view.spotify_login, name='spotify-login'),
+    path('callback/', view.callback, name='callback'),
 ]
