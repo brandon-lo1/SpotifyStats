@@ -1,36 +1,53 @@
 <!-- templates/top_tracks.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Top Tracks</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+            background: #282828; /* Spotify's dark background color */
             text-align: center;
             margin: 0;
             padding: 0;
-        }
-        h1 {
-            background-color: #333;
             color: #fff;
-            padding: 10px;
         }
+
+        h1 {
+            background-color: rgba(29, 185, 84, 0.1); /* Slightly transparent Spotify green */
+            color: #1DB954; /* Spotify green */
+            padding: 20px 0;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #1DB954; /* Border line for added aesthetic */
+        }
+
         ul {
             list-style: none;
             padding: 0;
+            display: inline-block;
         }
+
         li {
-            background-color: #fff;
-            border: 1px solid #ddd;
+            background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent dark */
+            border-left: 4px solid #1DB954; /* A thin left border for style */
             margin: 10px;
-            padding: 10px;
+            padding: 20px;
             font-size: 18px;
-            border-radius: 5px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
+
 <body>
     <h1>Your Top Tracks</h1>
     <ul>
@@ -39,4 +56,5 @@
         {% endfor %}
     </ul>
 </body>
+
 </html>
