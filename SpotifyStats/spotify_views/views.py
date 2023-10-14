@@ -4,12 +4,10 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from django.shortcuts import redirect
 import requests
-import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
-import logging
 
-SPOTIPY_CLIENT_ID = 'dc77fc145bf745d4a57a1c35ff15009b'
-SPOTIPY_CLIENT_SECRET = 'fa41f2bd61804591a46f29845f197363'
+
+SPOTIPY_CLIENT_ID = ''
+SPOTIPY_CLIENT_SECRET = ''
 SPOTIPY_REDIRECT_URI = 'http://localhost:8000/callback'
 
 # Create your views here.
