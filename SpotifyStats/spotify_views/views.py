@@ -5,8 +5,8 @@ from spotipy.oauth2 import SpotifyOAuth
 from django.shortcuts import redirect
 import requests
 
-SPOTIPY_CLIENT_ID = ''
-SPOTIPY_CLIENT_SECRET = ''
+SPOTIPY_CLIENT_ID = 'dc77fc145bf745d4a57a1c35ff15009b'
+SPOTIPY_CLIENT_SECRET = 'fa41f2bd61804591a46f29845f197363'
 SPOTIPY_REDIRECT_URI = 'http://localhost:8000/callback'
 
 # Create your views here.
