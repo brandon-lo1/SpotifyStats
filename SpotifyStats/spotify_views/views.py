@@ -42,5 +42,4 @@ def top_tracks(request):
     # Fetch top tracks
     results = sp.current_user_top_tracks(limit = 10)
     tracks = results['items']
-    print(tracks[])
     return render(request, 'top_tracks.html', {'top_tracks': tracks})
