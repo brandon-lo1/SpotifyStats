@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Recommended Tracks</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #282828; /* Spotify's dark background color */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        h1 {
+            background-color: rgba(29, 185, 84, 0.1); /* Slightly transparent Spotify green */
+            color: #1DB954; /* Spotify green */
+            padding: 20px 0;
+            margin: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #1DB954;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #1DB954;
+            margin: 10px 20px;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .track-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .track-name {
+            margin-right: 10px; /* Space between track name and the "by" word */
+        }
+
+        .artist-name {
+            margin-left: 10px; /* Space between the "by" word and artist name */
+        }
+
+        /* Style for album art */
+        .album-art {
+            width: 50px; /* Set a fixed width for album art */
+            height: 50px; /* Set a fixed height for album art */
+            margin-right: 15px; /* Add some spacing between album art and text */
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Recommended Tracks for You</h1>
+    <ul>
+        {% for track in recommended_tracks %}
+        <li>
+            <div class="track-info">
+                <img class="album-art" src="{{ track.album.images.1.url }}" alt="Album Art">
+                <strong class="track-name">{{ track.name }}</strong>
+                by
+                <span class="artist-name">{{ track.artists.0.name }}</span>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
