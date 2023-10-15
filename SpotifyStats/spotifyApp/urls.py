@@ -23,6 +23,12 @@ urlpatterns = [
     path('', view.login_template),
     path('spotify-login/', view.spotify_login, name='spotify-login'),
     path('callback/', view.callback, name='callback'),
+<<<<<<< HEAD
     path('intermediate-page', view.intermediate_page, name='intermediate_page'),
     path('top_tracks/', view.top_tracks, name='top_tracks')
+=======
+    path('top_tracks/', view.top_tracks, name='top_tracks'),
+    path('top_artists/', view.top_artists, name='top_artists'),
+    path('recommendations/', view.display_recommendations, name='display_recommendations'),
+>>>>>>> 5363e4c86069d4df88133bf4657288e60c62c6cd
 ]

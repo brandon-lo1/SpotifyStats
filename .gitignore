@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Django file
+.DS_Store/
+
 # Virtual environment
 django-spotify/
 

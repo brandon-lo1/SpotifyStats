@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Your Spotify Top Tracks</title>
+    <title>Your Spotify Top Artists</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
         li {
             background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent dark */
             border-left: 4px solid #1DB954; /* A thin left border for style */
-            margin: 10px 300px; /* Add margin to the top and bottom, and some left and right margin */
+            margin: 10px 800px; /* Add margin to the top and bottom, and some left and right margin */
             padding: 10px; /* Reduced padding to make room for album art */
             font-size: 18px;
             border-radius: 15px;
@@ -42,7 +42,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex; /* Align contents horizontally */
             align-items: center; /* Center contents vertically */
-            justify-content: space-between; /* Space between album art, track name, and artist */
+            justify-content: space-evenly; /* Space between artist pic and artist */
         }
 
         li:hover {
@@ -50,20 +50,14 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
-        /* Style for album art */
-        .album-art {
-            width: 64px; /* Set a fixed width for album art */
-            height: 64px; /* Set a fixed height for album art */
-            margin-right: 10px; /* Add some spacing between album art and text */
-            float: left; /* Float the album art to the left */
+        /* Style for artist pic */
+        .artist-pic {
+            width: 64px; /* Set a fixed width for artist pic */
+            height: 64px; /* Set a fixed height for artist pic */
+            margin-right: 10px; /* Add some spacing between artist pic and text */
+            float: left; /* Float the artist pic to the left */
         }
-
-        .track-name {
-            text-align: left; /* Align track names to the left */
-            width: 50%; /* Set a width for the track name column */
-            margin-left: 10px; /* Add spacing between album art and track name */
-        }
-
+        
         .artist-name {
             text-align: left; /* Align artist names to the left */
             width: 50%; /* Set a width for the artist name column */
@@ -72,13 +66,12 @@
 </head>
 
 <body>
-    <h1>Top Tracks (all time)</h1>
+    <h1>Top Artists (all time)</h1>
     <ul>
-        {% for track in top_tracks %}
+        {% for artist in top_artists %}
         <li>
-            <img class="album-art" src="{{ track.album.images.1.url }}" alt="Album Art">
-            <div class="track-name">{{ track.name }}</div>
-            <div class="artist-name">{{ track.artists.0.name }}</div>
+            <img class="artist-pic" src="{{ artist.images.1.url }}" alt="Artist Picture">
+            <div class="artist-name">{{ artist.name }}</div>
         </li>
         {% endfor %}
     </ul>
