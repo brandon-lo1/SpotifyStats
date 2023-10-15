@@ -9,18 +9,17 @@ SPOTIPY_CLIENT_ID = ''
 SPOTIPY_CLIENT_SECRET = ''
 SPOTIPY_REDIRECT_URI = 'http://localhost:8000/callback'
 
-# Create your views here.
-def login_page(request):
-     return HttpResponse('Login Here!')
 
 def login_template(request):
     return render(request, 'login.html')
+
 
 def spotify_login(request):
     
     sp_oauth = SpotifyOAuth(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI, scope='user-read-currently-playing user-top-read')
     auth_url = sp_oauth.get_authorize_url()
     return redirect(auth_url)
+
 
 def callback(request):
     sp_oauth = SpotifyOAuth(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET, SPOTIPY_REDIRECT_URI, scope='user-read-currently-playing user-top-read')
@@ -31,6 +30,7 @@ def callback(request):
         # Store the token_info in the session or database for future use
         return redirect('top_artists')  # Redirect to another page or perform actions as needed
     return redirect('')  # Redirect back to login page if authentication failed
+
 
 def top_tracks(request):
     token_info = request.session.get('token_info')
@@ -55,9 +55,8 @@ def top_artists(request):
     # Fetch top tracks
     results = sp.current_user_top_artists(limit=10, time_range="long_term")
     artist = results['items']
-    print("Your Top Artists are:")
-    print(artist)
     return render(request, 'top_artists.html', {'top_artists': artist})
+
 
 def get_recommendations(sp, top_n=10):
     # Fetching the top 5 tracks of the user to use as seed tracks
@@ -67,6 +66,7 @@ def get_recommendations(sp, top_n=10):
     recommendations = sp.recommendations(seed_tracks=users_top_tracks, limit=top_n)
     
     return [track['id'] for track in recommendations['tracks']]
+
 
 def display_recommendations(request):
     token_info = request.session.get('token_info')
