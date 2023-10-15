@@ -5,7 +5,6 @@ from spotipy.oauth2 import SpotifyOAuth
 from django.shortcuts import redirect
 import requests
 
-
 SPOTIPY_CLIENT_ID = ''
 SPOTIPY_CLIENT_SECRET = ''
 SPOTIPY_REDIRECT_URI = 'http://localhost:8000/callback'
@@ -30,7 +29,7 @@ def callback(request):
         request.session['token_info'] = sp_oauth.get_access_token(request.GET.get('code'))
 
         # Store the token_info in the session or database for future use
-        return redirect('top_tracks')  # Redirect to another page or perform actions as needed
+        return redirect('top_artists')  # Redirect to another page or perform actions as needed
     return redirect('')  # Redirect back to login page if authentication failed
 
 def top_tracks(request):
@@ -41,9 +40,24 @@ def top_tracks(request):
     sp = spotipy.Spotify(auth = access_token)
 
     # Fetch top tracks
-    results = sp.current_user_top_tracks(limit = 10)
+    results = sp.current_user_top_tracks(limit = 10, time_range="long_term")
     tracks = results['items']
     return render(request, 'top_tracks.html', {'top_tracks': tracks})
+
+
+def top_artists(request):
+    token_info = request.session.get('token_info')
+    access_token = token_info['access_token']
+
+    # Spotipy client with the token
+    sp = spotipy.Spotify(auth=access_token)
+
+    # Fetch top tracks
+    results = sp.current_user_top_artists(limit=10, time_range="long_term")
+    artist = results['items']
+    print("Your Top Artists are:")
+    print(artist)
+    return render(request, 'top_artists.html', {'top_artists': artist})
 
 def get_recommendations(sp, top_n=10):
     # Fetching the top 5 tracks of the user to use as seed tracks

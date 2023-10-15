@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Spotify Top Artists </title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #282828; /* Spotify's dark background color */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        h1 {
+            background-color: rgba(29, 185, 84, 0.1); /* Slightly transparent Spotify green */
+            color: #1DB954; /* Spotify green */
+            padding: 20px 0;
+            margin: 0; /* Center the title horizontally */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #1DB954; /* Border line for added aesthetic */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent dark */
+            border-left: 4px solid #1DB954; /* A thin left border for style */
+            margin: 10px 20px; /* Add margin to the top and bottom, and some left and right margin */
+            padding: 10px; /* Reduced padding to make room for album art */
+            font-size: 18px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex; /* Align contents horizontally */
+            align-items: center; /* Center contents vertically */
+            justify-content: space-between; /* Space between album art, track name, and artist */
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Top Artists (last 6 months)</h1>
+    <ul>
+        {% for artist in top_artists %}
+        <li>
+            <div class="artist-name">{{ artist.name }}</div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
