@@ -3,52 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Login</title>
+    <title>Welcome to Spotify Stats</title>
     <style>
-        /* Basic styling for the entire page */
         body {
             font-family: Arial, sans-serif;
-            background-color: #282828; /* Spotify's dark background color */
-            color: white;
-            height: 100vh;
+            background-color: #282828; /* Spotify black background color */
+            margin: 0;
+            padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
 
-        /* Styling for the login button */
-        .login-btn {
-            background-color: #1DB954; /* Spotify green color */
-            padding: 10px 20px;
-            text-decoration: none;
-            color: white;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: background-color 0.3s; /* Smooth transition effect */
-        }
-
-        .login-btn:hover {
-            background-color: #1ED760; /* Slightly lighter green for hover effect */
-        }
-
-        /* Styling for the login container */
-        .login-container {
+        h1 {
+            font-size: 60px;
             text-align: center;
-            border-radius: 10px;
-            padding: 30px;
-            background: #333; /* Slightly different from the background for contrast */
+            color: white;
+            transform: translateY(-160%);
         }
 
-        .login-container h2 {
-            margin-bottom: 20px;
+        .login-button {
+            background-color: #1DB954; /* Spotify green button color */
+            border: none;
+            border-radius: 100px;
+            color: white;
+            padding: 30px 65px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 45px;
+            margin: 20px;
+            cursor: pointer;
         }
-        
+
+        .login-button:hover {
+            background-color: #0D8050; /* Darker green for hover effect */
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center both horizontally and vertically */
+            width: 100%;
+            transform: translateY(160%);
+        }
+
+        .text-container {
+            flex: 1;
+            text-align: center;
+        }
+
+        p {
+            color: white;
+            font-size: 25px;
+        }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login with Spotify</h2>
-        <a href="{% url 'spotify-login' %}" class="login-btn">Login</a>
+    <h1>Welcome to Spotify Stats</h1>
+
+    <a class="login-button" href="{% url 'spotify-login' %}" >Login</a>
+
+    <div class="container">
+        <div class="text-container text-container-left">
+            <p>Top Tracks</p>
+        </div>
+        <div class="text-container text-container-divider1">
+            <p>~</p>
+        </div>
+        <div class="text-container text-container-center">
+            <p>Song Recommendations</p>
+        </div>
+        <div class="text-container text-container-divider2">
+            <p>~</p>
+        </div>
+        <div class="text-container text-container-right">
+            <p>Top Artists</p>
+        </div>
     </div>
 </body>
 </html>
