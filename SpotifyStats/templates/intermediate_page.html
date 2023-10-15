@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Category</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282828; /* Spotify's dark background color */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ensure the body takes up the full height of the viewport */
+            margin: 0; /* Remove default margin */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around; /* Evenly distribute space between buttons */
+        }
+
+        .artists-button {
+            margin: 50px;
+            padding: 60px 120px;
+            background-color: #44b14a; 
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 22px;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+        .artists-button:hover {
+            background-color: #4ac150;
+        }
+        .songs-button {
+            margin: 50px;
+            padding: 60px 120px;
+            background-color: #0ba639; 
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 22px;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+        .songs-button:hover {
+            background-color: #0dbc41;
+        }
+        .recs-button {
+            margin: 50px;
+            padding: 60px 120px;
+            background-color: #027512; 
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 22px;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+        .recs-button:hover {
+            background-color: #029115;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button-container">
+        <a href="top_artists/" class="artists-button">Top Artists</a>
+        <a href="top_tracks/" class="songs-button">Top Songs</a>
+        <a href="recommendations/" class="recs-button">Recommendations</a>
+    </div>
+</body>
+
+</html>

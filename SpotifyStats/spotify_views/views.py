@@ -29,8 +29,11 @@ def callback(request):
         request.session['token_info'] = sp_oauth.get_access_token(request.GET.get('code'))
 
         # Store the token_info in the session or database for future use
-        return redirect('top_tracks')  # Redirect to another page or perform actions as needed
+        return redirect('intermediate_page')  # Redirect to another page or perform actions as needed
     return redirect('')  # Redirect back to login page if authentication failed
+
+def intermediate_page(request):
+    return render(request, 'intermediate_page.html')
 
 def top_tracks(request):
     token_info = request.session.get('token_info')
