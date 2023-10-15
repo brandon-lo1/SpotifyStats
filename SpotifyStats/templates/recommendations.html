@@ -72,9 +72,9 @@
 </head>
 
 <body>
-    <h1>Top Tracks (last 6 months)</h1>
+    <h1>Recommended Tracks for You</h1>
     <ul>
-        {% for track in top_tracks %}
+        {% for track in recommended_tracks %}
         <li>
             <img class="album-art" src="{{ track.album.images.1.url }}" alt="Album Art">
             <div class="track-name">{{ track.name }}</div>

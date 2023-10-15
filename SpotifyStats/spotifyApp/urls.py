@@ -24,5 +24,6 @@ urlpatterns = [
     path('spotify-login/', view.spotify_login, name='spotify-login'),
     path('callback/', view.callback, name='callback'),
     path('top_tracks/', view.top_tracks, name='top_tracks'),
-    path('top_artists/', view.top_artists, name='top_artists')
+    path('top_artists/', view.top_artists, name='top_artists'),
+    path('recommendations/', view.display_recommendations, name='display_recommendations'),
 ]

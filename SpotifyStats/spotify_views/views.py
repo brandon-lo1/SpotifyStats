@@ -5,8 +5,8 @@ from spotipy.oauth2 import SpotifyOAuth
 from django.shortcuts import redirect
 import requests
 
-SPOTIPY_CLIENT_ID = 'f109931b48c94ca1bc70fde1d57504ef'
-SPOTIPY_CLIENT_SECRET = 'b8e4122cdd6b4ea38dae4fdc35aa391f'
+SPOTIPY_CLIENT_ID = ''
+SPOTIPY_CLIENT_SECRET = ''
 SPOTIPY_REDIRECT_URI = 'http://localhost:8000/callback'
 
 # Create your views here.
@@ -58,3 +58,23 @@ def top_artists(request):
     print("Your Top Artists are:")
     print(artist)
     return render(request, 'top_artists.html', {'top_artists': artist})
+
+def get_recommendations(sp, top_n=10):
+    # Fetching the top 5 tracks of the user to use as seed tracks
+    users_top_tracks = [item['id'] for item in sp.current_user_top_tracks(limit=5)['items']]
+    
+    # Get recommendations based on the user's top tracks
+    recommendations = sp.recommendations(seed_tracks=users_top_tracks, limit=top_n)
+    
+    return [track['id'] for track in recommendations['tracks']]
+
+def display_recommendations(request):
+    token_info = request.session.get('token_info')
+    access_token = token_info['access_token']
+    
+    # Spotipy client with the token
+    sp = spotipy.Spotify(auth = access_token)
+    recommended_track_ids = get_recommendations(sp)
+    recommended_tracks = sp.tracks(recommended_track_ids)['tracks']
+
+    return render(request, 'recommendations.html', {'recommended_tracks': recommended_tracks})
