@@ -7,8 +7,8 @@ import requests
 
 # The Spotify client ID and secret must be entered here for it to run.
 # This can be obtained from your developer account on the Spotify web developer portal
-SPOTIPY_CLIENT_ID = 'dc77fc145bf745d4a57a1c35ff15009b'
-SPOTIPY_CLIENT_SECRET = 'fa41f2bd61804591a46f29845f197363'
+SPOTIPY_CLIENT_ID = ''
+SPOTIPY_CLIENT_SECRET = ''
 SPOTIPY_REDIRECT_URI = 'http://localhost:8000/callback'
 
 # This represents our login home page and redirects to the login HTML file
