@@ -1,3 +1,3 @@
 # SpotifyStats
 
-Helpful Links: https://medium.com/@hmlon/django-authentication-via-google-deezer-and-spotify-bb7c329357be
+Our project provides an all-in-one site for you to see your top tracks and top artists of all time. Furthermore, it generates song recommendations based on your personal taste!
