@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Your Spotify Top Artists</title>
+    <title>Your Spotify Top Tracks</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
             padding: 0;
         }
 
-        li {
+        .track-box {
             background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent dark */
             border-left: 4px solid #1DB954; /* A thin left border for style */
             margin: 10px 400px; /* Add margin to the top and bottom, and some left and right margin */
@@ -42,13 +42,15 @@
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex; /* Align contents horizontally */
             align-items: center; /* Center contents vertically */
-            justify-content: space-evenly; /* Space between artist pic and artist */
+            justify-content: space-between; /* Space between album art, track name, and artist */
+            cursor: pointer; /* Change cursor to pointer for clickable items */
         }
 
-        li:hover {
+        .track-box:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
+
 
         /* Style for artist pic */
         .artist-pic {
@@ -58,9 +60,13 @@
             float: left; /* Float the artist pic to the left */
         }
         
+        /* Style for the artist name */
         .artist-name {
-            text-align: left; /* Align artist names to the left */
-            width: 50%; /* Set a width for the artist name column */
+            text-align: left; /* Align track names and artist names to the left */
+            width: 50%; /* Set a width for the text columns */
+            margin-left: 10px; /* Add spacing between album art and text */
+            text-decoration: none; /* Remove underline from the text */
+            color: inherit; /* Inherit the text color from the parent */
         }
     </style>
 </head>
@@ -69,10 +75,10 @@
     <h1>Top Artists (all time)</h1>
     <ul>
         {% for artist in top_artists %}
-        <li>
+        <div class="track-box" onclick="window.location='{{ artist.external_urls.spotify }}';">
             <img class="artist-pic" src="{{ artist.images.1.url }}" alt="Artist Picture">
             <div class="artist-name">{{ artist.name }}</div>
-        </li>
+        </div>
         {% endfor %}
     </ul>
 </body>
